@@ -29,6 +29,39 @@ public class IsinGenerator {
     }
 
     public int calculateCheckDigit(String isinWithoutCheckDigit) {
-        return 0; // TODO: calculate check digit
+
+        StringBuilder numeric = new StringBuilder();
+
+        // convert letter to number if there's any
+        for (char c : isinWithoutCheckDigit.toCharArray()) {
+            if (Character.isDigit(c)) {
+                numeric.append(c);
+            } else {
+                numeric.append(c - 'A' + 10);
+            }
+        }
+
+        // all the digits are here
+        String digits = numeric.toString();
+
+        // double each digit (only odd positioned) starting from right
+        StringBuilder transformed = new StringBuilder();
+        for (int i = digits.length() - 1; i >= 0; i--) {
+            int digit = digits.charAt(i) - '0';
+
+            if (i % 2 == 1) {
+                digit = digit * 2;
+            }
+            transformed.append(digit);
+        }
+
+        // calculate sum
+        int sum = 0;
+        for (int i = 0; i < transformed.length(); i++) {
+            sum += transformed.charAt(i) - '0';
+        }
+
+        int checkDigit = 10 - (sum % 10);
+        return checkDigit % 10; // mod by 10 again because sum can be multiple of 10
     }
 }
