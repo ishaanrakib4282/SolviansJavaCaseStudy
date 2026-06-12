@@ -53,9 +53,9 @@ public class CertificateUpdate {
     public String toString() {
         return timestamp + "," +
                 isin + "," +
-                bidPrice + "," +
+                String.format("%.2f", bidPrice) + "," +
                 bidSize + "," +
-                askPrice + "," +
+                String.format("%.2f", askPrice) + "," +
                 askSize;
     }
 }
