@@ -22,7 +22,7 @@ public class App {
 
     private static void printResult(Stream<CertificateUpdate> certificateUpdateStream) {
         certificateUpdateStream
-                .map(certificateUpdate -> "CertificateUpdate")
+//                .map(certificateUpdate -> "CertificateUpdate")
                 .forEach(System.out::println);
     }
 }
