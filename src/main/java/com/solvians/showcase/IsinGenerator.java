@@ -46,10 +46,10 @@ public class IsinGenerator {
 
         // double each digit (only odd positioned) starting from right
         StringBuilder transformed = new StringBuilder();
-        for (int i = digits.length() - 1; i >= 0; i--) {
+        for (int i = digits.length() - 1, j = 1; i >= 0; i--, j++) {
             int digit = digits.charAt(i) - '0';
 
-            if (i % 2 == 1) {
+            if (j % 2 == 1) {
                 digit = digit * 2;
             }
             transformed.append(digit);
