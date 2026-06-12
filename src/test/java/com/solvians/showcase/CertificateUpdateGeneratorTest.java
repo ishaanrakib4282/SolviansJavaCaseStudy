@@ -12,9 +12,9 @@ class CertificateUpdateGeneratorTest {
     @Test
     public void generateQuotes() {
         int threadCount = 10;
-        int quotesPerThread = 100;
+        int quotesInTotal = 100;
         CertificateUpdateGenerator certificateUpdateGenerator = new CertificateUpdateGenerator(
-                threadCount, quotesPerThread);
+                threadCount, quotesInTotal);
         Stream<CertificateUpdate> quotes = certificateUpdateGenerator.generateQuotes();
         assertNotNull(quotes);
         // Need clarification: 1000 or 100? Assuming, expected is: quotes, so coding for 100 quote generation.
