@@ -17,12 +17,6 @@ public class App {
 
         CertificateUpdateGenerator certificateUpdateGenerator = new CertificateUpdateGenerator(threads, quotes);
         Stream<CertificateUpdate> certificateUpdateStream = certificateUpdateGenerator.generateQuotes();
-        printResult(certificateUpdateStream);
-    }
-
-    private static void printResult(Stream<CertificateUpdate> certificateUpdateStream) {
-        certificateUpdateStream
-//                .map(certificateUpdate -> "CertificateUpdate")
-                .forEach(System.out::println);
+        certificateUpdateStream.forEach(System.out::println);
     }
 }
