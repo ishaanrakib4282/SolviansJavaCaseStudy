@@ -5,6 +5,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class CertificateUpdateTask implements Callable<CertificateUpdate> {
 
+    private final IsinGenerator isinGenerator = new IsinGenerator();
+
     @Override
     public CertificateUpdate call() {
 
@@ -12,7 +14,7 @@ public class CertificateUpdateTask implements Callable<CertificateUpdate> {
 
         long timestamp = System.currentTimeMillis();
 
-        String isin = "DE1234567896"; // TODO: not yet written
+        String isin = isinGenerator.generate();
 
         double bidPrice = generateRandomLong(random, 10000, 20000) / 100.0;
 
