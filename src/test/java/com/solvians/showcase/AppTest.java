@@ -20,6 +20,4 @@ public class AppTest {
         });
         assertEquals("For input string: \"zzz\"", numbers.getMessage());
     }
-
-
 }
